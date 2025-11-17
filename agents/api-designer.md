@@ -623,6 +623,91 @@ User Endpoints:
 - [ ] No sensitive data leaked in errors
 - [ ] API prefix configurable
 
+## Context Requirements
+
+### Required Files
+- `SPECIFICATION.md` - Feature requirements and data models from Product Analyst
+- Database schema (from Database Architect) - To understand data structures
+- `agents/tech-stack-reference.md` - For API conventions and patterns
+
+### Optional Context
+- Example API specifications from reddit-quora-web-site
+- Authentication requirements documentation
+- Business logic rules that affect API design
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies
+- `dist/**` - Build output
+- `src/**` - Frontend code
+- `server/routes/**` - Implementation code (not needed for design)
+- `.git/**` - Git history
+- `*.log` - Log files
+
+## Context Loading Strategy
+
+### Phase 1: Requirements Analysis
+Load business and data requirements:
+- Read `SPECIFICATION.md` to understand all features
+- Extract CRUD operations needed for each entity
+- Identify authentication/authorization requirements
+- Map user roles to permissions
+
+### Phase 2: Data Model Understanding
+Load database context:
+- Review database schema to understand table structures
+- Identify relationships between entities
+- Note constraints and validation rules
+- Map database fields to API response formats
+
+### Phase 3: API Convention Application
+Load standardization patterns:
+- Review REST conventions (GET, POST, PATCH, DELETE)
+- Apply status code standards (200, 201, 400, 401, 404, etc.)
+- Define consistent error response formats
+- Plan pagination and filtering strategies
+
+## MCP Tools Used
+None - This agent designs API specifications and creates documentation. No browser automation or implementation tools required.
+
+## State Management
+
+### API Design State
+```json
+{
+  "endpointsDesigned": {
+    "authentication": ["POST /auth/register", "POST /auth/login"],
+    "resources": {
+      "posts": ["GET /posts", "GET /posts/:id", "POST /posts", "PATCH /posts/:id"],
+      "comments": ["GET /comments", "POST /comments"]
+    },
+    "admin": ["GET /admin/users", "PATCH /admin/users/:id/role"]
+  },
+  "typesDocumented": {
+    "requests": 12,
+    "responses": 15,
+    "errors": 5
+  },
+  "authenticationStrategy": "JWT Bearer Token",
+  "statusCodesUsed": [200, 201, 400, 401, 403, 404, 409, 500]
+}
+```
+
+### Agent Statistics
+```json
+{
+  "endpointsDocumented": 18,
+  "requestSchemasCreated": 12,
+  "responseSchemasCreated": 15,
+  "statusCodesCovered": 8,
+  "authEndpoints": 5,
+  "publicEndpoints": 8,
+  "protectedEndpoints": 10,
+  "typeDefinitionsCreated": 27,
+  "errorFormatsStandardized": true,
+  "paginationStrategy": "offset-based"
+}
+```
+
 ---
 
 **Agent Version**: 1.0

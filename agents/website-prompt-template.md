@@ -305,6 +305,51 @@ agents from the reddit-quora-web-site tech stack.
 
 The Orchestrator will coordinate all agents to build your complete application!
 
+## Context Requirements
+
+### Required Files
+None - This is a template for users to fill out. It becomes input for the Product Analyst agent.
+
+### Optional Context
+- Example filled templates for reference
+- Feature inspiration from existing projects
+
+### Exclude Patterns
+Not applicable - this is a user-facing template.
+
+## Context Loading Strategy
+
+### Phase 1: Template Usage
+User fills out this template with their website requirements.
+
+### Phase 2: Handoff to Product Analyst
+Completed template is provided to Product Analyst agent for analysis.
+
+### Phase 3: Not Applicable
+This template doesn't execute; users complete it.
+
+## MCP Tools Used
+None - This is a user-facing template document, not an executable agent.
+
+## State Management
+
+### Template Document State
+```json
+{
+  "documentType": "user template",
+  "purpose": "gather website requirements from users",
+  "targetAudience": ["users", "clients"],
+  "completionStatus": "to be filled by user"
+}
+```
+
+### Agent Statistics
+```json
+{
+  "notApplicable": "This is a user template, not an executable agent"
+}
+```
+
 ---
 
 **Template Version**: 1.0

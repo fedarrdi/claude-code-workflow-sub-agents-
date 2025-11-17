@@ -1007,6 +1007,98 @@ catch (error) {
 - [ ] Error messages don't expose internal details
 - [ ] Console.error used for logging errors
 
+## Context Requirements
+
+### Required Files
+- `server/db.ts` - Database adapter and connection management
+- `API_SPECIFICATION.md` - API endpoint specifications from API Designer
+- `server/types/index.ts` - TypeScript type definitions for requests/responses
+- `.env` - Environment variables (JWT_SECRET, PORT, CORS_ORIGIN, etc.)
+- Database schema documentation from Database Architect
+
+### Optional Context
+- `server/config.ts` - Configuration management patterns
+- `server/utils.ts` - Utility functions for common operations
+- Example route implementations from reddit-quora-web-site codebase
+- Email service integration patterns (if implementing notifications)
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies (not needed for implementation)
+- `dist/**` - Build output
+- `src/**` - Frontend code (Frontend Engineer handles this)
+- `.git/**` - Git history
+- `*.sqlite` - Database files
+- `coverage/**` - Test coverage reports
+
+## Context Loading Strategy
+
+### Phase 1: Foundation Understanding
+Load core dependencies and patterns:
+- Read `server/db.ts` to understand database query patterns (get, all, run)
+- Read `API_SPECIFICATION.md` to understand endpoint requirements
+- Review environment variables needed from `.env`
+- Load TypeScript types for request/response bodies
+
+### Phase 2: Implementation Context
+Load implementation-specific files:
+- Review existing route patterns if any routes exist
+- Load authentication middleware patterns
+- Review error handling conventions
+- Load utility functions (normalizeEmail, generateToken, etc.)
+
+### Phase 3: Validation
+Verify implementation readiness:
+- Check database connection is working
+- Verify all required env vars are set
+- Confirm TypeScript compilation succeeds
+- Test health check endpoint responds
+
+## MCP Tools Used
+None - This agent primarily implements backend code using standard development tools (TypeScript compiler, Node.js runtime, Express framework). No browser automation or external MCP tools required.
+
+## State Management
+
+### Backend Implementation State
+```json
+{
+  "routesImplemented": {
+    "auth": ["register", "login", "verification"],
+    "resources": ["list", "get", "create", "update", "delete"]
+  },
+  "middlewareConfigured": {
+    "cors": true,
+    "bodyParser": true,
+    "authentication": true,
+    "errorHandler": true
+  },
+  "validationStatus": {
+    "inputValidation": "completed",
+    "sqlInjectionPrevention": "completed",
+    "authenticationSecurity": "completed"
+  },
+  "integrations": {
+    "database": "connected",
+    "emailService": "configured",
+    "jwtAuth": "active"
+  }
+}
+```
+
+### Agent Statistics
+```json
+{
+  "endpointsCreated": 15,
+  "routeFiles": 4,
+  "middlewareFunctions": 3,
+  "validationErrors": 0,
+  "securityIssues": 0,
+  "typescriptErrors": 0,
+  "testEndpointsResponding": 15,
+  "averageResponseTime": "45ms",
+  "databaseQueriesOptimized": true
+}
+```
+
 ---
 
 **Agent Version**: 1.0

@@ -1,0 +1,221 @@
+{
+  "project_info": {
+    "name": "claude-agents",
+    "type": "agent-definitions",
+    "description": "Agent system for building web projects with React, TypeScript, Express, and SQL.js",
+    "last_updated": "2025-11-17"
+  },
+  "modules": {
+    "agent-definitions": {
+      "files": [
+        "agents/*.md"
+      ],
+      "dependencies": [],
+      "agents": ["orchestrator", "context-manager"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/orchestrator.md",
+        "agents/agent-workflow.md"
+      ],
+      "description": "Agent role definitions and specifications"
+    },
+    "context-system": {
+      "files": [
+        "agents/context-manager.md",
+        "agents/mcp-coordinator.md",
+        "agents/workflow-optimizer.md",
+        "agents/execute-with-context.md",
+        "agents/quick-commands.md"
+      ],
+      "dependencies": [],
+      "agents": ["context-manager", "mcp-coordinator", "workflow-optimizer"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/context-manager.md"
+      ],
+      "description": "Context management and optimization system"
+    },
+    "context-templates": {
+      "files": [
+        "agents/context-templates/*.md"
+      ],
+      "dependencies": ["context-system"],
+      "agents": ["all"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/context-templates/add-ui-component.md",
+        "agents/context-templates/add-api-endpoint.md",
+        "agents/context-templates/fix-bug.md",
+        "agents/context-templates/add-feature.md",
+        "agents/context-templates/run-tests.md"
+      ],
+      "description": "Pre-built context templates for common tasks"
+    },
+    "frontend-engineering": {
+      "files": [
+        "agents/frontend-engineer.md",
+        "agents/premium-ui-designer.md",
+        "agents/design-review-agent.md"
+      ],
+      "dependencies": ["agent-definitions"],
+      "agents": ["frontend-engineer", "premium-ui-designer", "design-review-agent"],
+      "mcp_tools": ["playwright"],
+      "entry_points": [
+        "agents/frontend-engineer.md"
+      ],
+      "description": "Frontend development agents"
+    },
+    "backend-engineering": {
+      "files": [
+        "agents/backend-engineer.md",
+        "agents/api-designer.md",
+        "agents/database-architect.md"
+      ],
+      "dependencies": ["agent-definitions"],
+      "agents": ["backend-engineer", "api-designer", "database-architect"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/backend-engineer.md"
+      ],
+      "description": "Backend development agents"
+    },
+    "infrastructure": {
+      "files": [
+        "agents/project-architect.md",
+        "agents/devops-engineer.md"
+      ],
+      "dependencies": ["agent-definitions"],
+      "agents": ["project-architect", "devops-engineer"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/project-architect.md"
+      ],
+      "description": "Project infrastructure and DevOps agents"
+    },
+    "quality-assurance": {
+      "files": [
+        "agents/quality-assurance.md"
+      ],
+      "dependencies": ["agent-definitions"],
+      "agents": ["quality-assurance"],
+      "mcp_tools": ["playwright"],
+      "entry_points": [
+        "agents/quality-assurance.md"
+      ],
+      "description": "Quality assurance and testing agent"
+    },
+    "product-management": {
+      "files": [
+        "agents/product-analyst.md",
+        "agents/orchestrator.md"
+      ],
+      "dependencies": ["agent-definitions"],
+      "agents": ["product-analyst", "orchestrator"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/product-analyst.md",
+        "agents/orchestrator.md"
+      ],
+      "description": "Product analysis and orchestration agents"
+    },
+    "tech-stack": {
+      "files": [
+        "agents/tech-stack-reference.md",
+        "agents/tech-stack-config.md"
+      ],
+      "dependencies": [],
+      "agents": ["project-architect"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/tech-stack-reference.md"
+      ],
+      "description": "Technology stack specifications and configurations"
+    },
+    "templates": {
+      "files": [
+        "templates/**/*",
+        "agents/website-prompt-template.md"
+      ],
+      "dependencies": [],
+      "agents": ["product-analyst", "orchestrator"],
+      "mcp_tools": [],
+      "entry_points": [
+        "agents/website-prompt-template.md"
+      ],
+      "description": "Project and prompt templates"
+    },
+    "examples": {
+      "files": [
+        "examples/**/*"
+      ],
+      "dependencies": [],
+      "agents": ["all"],
+      "mcp_tools": [],
+      "entry_points": [],
+      "description": "Example projects and demonstrations"
+    },
+    "prompts": {
+      "files": [
+        "prompts/*.md"
+      ],
+      "dependencies": ["context-system"],
+      "agents": ["all"],
+      "mcp_tools": [],
+      "entry_points": [
+        "prompts/smart-context-prompt.md"
+      ],
+      "description": "Prompt templates and instructions"
+    }
+  },
+  "common_patterns": {
+    "add-ui-component": {
+      "modules": ["frontend-engineering", "context-templates"],
+      "template": "agents/context-templates/add-ui-component.md",
+      "typical_tokens": 1200,
+      "typical_files": 5
+    },
+    "add-api-endpoint": {
+      "modules": ["backend-engineering", "context-templates"],
+      "template": "agents/context-templates/add-api-endpoint.md",
+      "typical_tokens": 2000,
+      "typical_files": 8
+    },
+    "fix-bug": {
+      "modules": ["frontend-engineering", "backend-engineering", "context-templates"],
+      "template": "agents/context-templates/fix-bug.md",
+      "typical_tokens": 800,
+      "typical_files": 4
+    },
+    "add-feature": {
+      "modules": ["frontend-engineering", "backend-engineering", "context-templates"],
+      "template": "agents/context-templates/add-feature.md",
+      "typical_tokens": 3000,
+      "typical_files": 15
+    },
+    "run-tests": {
+      "modules": ["quality-assurance", "context-templates"],
+      "template": "agents/context-templates/run-tests.md",
+      "typical_tokens": 1500,
+      "typical_files": 6
+    }
+  },
+  "file_patterns": {
+    "agents": "agents/**/*.md",
+    "context_templates": "agents/context-templates/*.md",
+    "prompts": "prompts/*.md",
+    "templates": "templates/**/*",
+    "examples": "examples/**/*",
+    "docs": "*.md"
+  },
+  "exclude_patterns": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    ".git/**",
+    "*.log",
+    "coverage/**",
+    ".cache/**",
+    "*.sqlite",
+    "*.db"
+  ]
+}

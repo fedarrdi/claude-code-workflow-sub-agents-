@@ -294,6 +294,57 @@ const id = result.lastID;
 - **Persistence**: LocalStorage (`theme` key)
 - **Default**: Dark mode
 
+## Context Requirements
+
+### Required Files
+None - This is a reference document, not an executable agent. Other agents reference this file to understand the tech stack.
+
+### Optional Context
+- `package.json` files from reddit-quora-web-site for version verification
+- Configuration files (vite.config.ts, tailwind.config.js, tsconfig.json)
+
+### Exclude Patterns
+- `node_modules/**`
+- `dist/**`
+- `.git/**`
+
+## Context Loading Strategy
+
+### Phase 1: Reference Lookup
+This is a static reference document:
+- Other agents read specific sections as needed
+- No dynamic loading required
+- Used as source of truth for technology versions
+
+### Phase 2: Not Applicable
+This document doesn't execute; it provides information.
+
+### Phase 3: Not Applicable
+This document doesn't execute; it provides information.
+
+## MCP Tools Used
+None - This is a reference document, not an executable agent.
+
+## State Management
+
+### Reference Document State
+```json
+{
+  "documentType": "reference",
+  "purpose": "tech stack specifications",
+  "targetAudients": ["all agents", "developers"],
+  "maintained": true,
+  "versioned": true
+}
+```
+
+### Agent Statistics
+```json
+{
+  "notApplicable": "This is a reference document, not an executable agent"
+}
+```
+
 ---
 
 **Version**: 1.0

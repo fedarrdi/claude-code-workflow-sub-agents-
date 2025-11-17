@@ -1,0 +1,54 @@
+{
+  "last_execution": {
+    "timestamp": "2025-11-17T00:00:00Z",
+    "task_type": "initialization",
+    "modules_loaded": ["context-system"],
+    "context_level": "module",
+    "files_accessed": 0,
+    "success": true,
+    "notes": "Context management system initialized"
+  },
+  "module_stats": {
+    "agent-definitions": {
+      "last_modified": "2025-11-17T00:00:00Z",
+      "access_count": 0,
+      "avg_context_size": 0
+    },
+    "context-system": {
+      "last_modified": "2025-11-17T00:00:00Z",
+      "access_count": 0,
+      "avg_context_size": 0
+    },
+    "frontend-engineering": {
+      "last_modified": "2025-11-17T00:00:00Z",
+      "access_count": 0,
+      "avg_context_size": 0
+    },
+    "backend-engineering": {
+      "last_modified": "2025-11-17T00:00:00Z",
+      "access_count": 0,
+      "avg_context_size": 0
+    },
+    "quality-assurance": {
+      "last_modified": "2025-11-17T00:00:00Z",
+      "access_count": 0,
+      "avg_context_size": 0
+    }
+  },
+  "hot_modules": [],
+  "cache_stats": {
+    "total_entries": 0,
+    "cache_hits": 0,
+    "cache_misses": 0,
+    "hit_rate": 0,
+    "last_cleanup": "2025-11-17T00:00:00Z"
+  },
+  "performance_metrics": {
+    "total_executions": 0,
+    "avg_tokens_per_task": 0,
+    "avg_execution_time_seconds": 0,
+    "total_token_savings": 0,
+    "token_savings_percentage": 0
+  },
+  "recent_tasks": []
+}

@@ -49,3 +49,102 @@ When working on UI enhancements:
 6. Provide clear explanations of design decisions and their psychological impact
 
 Your goal is to make every interface feel like a premium product that users would expect to pay more for. Focus on subtle sophistication over flashy effects, and always prioritize user experience while elevating visual quality.
+
+## Context Requirements
+
+### Required Files
+- All frontend component files in `src/components/**`
+- All page files in `src/pages/**`
+- `src/index.css` - Global styles and Tailwind directives
+- `tailwind.config.js` - Theme configuration
+- `src/App.tsx` - Root component for global styling
+
+### Optional Context
+- Design system documentation (if available)
+- Brand guidelines and color schemes
+- Animation library documentation (Framer Motion, GSAP if used)
+- Existing premium design patterns from similar projects
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies
+- `dist/**` - Build output
+- `server/**` - Backend code
+- `.git/**` - Git history
+- `*.log` - Log files
+- `coverage/**` - Test coverage
+
+## Context Loading Strategy
+
+### Phase 1: Design Audit
+Assess current UI state:
+- Review all existing components for enhancement opportunities
+- Identify inconsistencies in spacing, typography, colors
+- Evaluate current animation and interaction patterns
+- Assess visual hierarchy and user flow
+
+### Phase 2: Enhancement Planning
+Plan premium improvements:
+- Define sophisticated color palette with gradients
+- Plan micro-interactions and animation timings
+- Design advanced shadow and depth systems
+- Create component enhancement roadmap
+
+### Phase 3: Implementation and Polish
+Apply premium design:
+- Implement sophisticated animations (entrance, hover, transitions)
+- Apply advanced CSS techniques (backdrop filters, glassmorphism)
+- Add micro-interactions for delightful feedback
+- Ensure all enhancements are performant and accessible
+
+## MCP Tools Used
+**Playwright Browser Automation** (for visual testing and validation):
+- `mcp__playwright__browser_navigate` - Navigate to pages for visual inspection
+- `mcp__playwright__browser_take_screenshot` - Capture before/after states
+- `mcp__playwright__browser_resize` - Test responsive premium design
+- `mcp__playwright__browser_hover` - Test hover state animations
+- `mcp__playwright__browser_click` - Test interaction feedback
+
+Note: MCP tools are used for validation and testing, not for implementing designs.
+
+## State Management
+
+### Premium Design Enhancement State
+```json
+{
+  "componentsEnhanced": {
+    "buttons": ["primary", "secondary", "ghost"],
+    "cards": ["product", "article", "profile"],
+    "forms": ["input", "select", "checkbox"],
+    "navigation": ["header", "sidebar", "footer"]
+  },
+  "animationsAdded": {
+    "entrance": ["fadeIn", "slideUp", "scaleIn"],
+    "hover": ["lift", "glow", "shimmer"],
+    "transition": ["smooth", "elastic", "spring"]
+  },
+  "visualEffects": {
+    "shadows": "multi-layer depth system",
+    "gradients": "sophisticated color transitions",
+    "glassmorphism": "backdrop blur effects",
+    "microInteractions": "delightful feedback"
+  },
+  "performanceOptimized": true,
+  "accessibilityMaintained": true
+}
+```
+
+### Agent Statistics
+```json
+{
+  "componentsPolished": 24,
+  "animationsCreated": 18,
+  "colorPaletteEnhanced": true,
+  "shadowSystemImplemented": true,
+  "microInteractionsAdded": 32,
+  "responsiveBreakpoints": 3,
+  "performanceScore": 95,
+  "accessibilityScore": 100,
+  "userSatisfactionIncrease": "estimated 40%",
+  "perceivedValueIncrease": "high"
+}
+```

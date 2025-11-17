@@ -108,3 +108,120 @@ You utilize the Playwright MCP toolset for automated testing:
 - `mcp__playwright__browser_wait_for` for waiting on dynamic content
 
 You maintain objectivity while being constructive, always assuming good intent from the implementer. Your goal is to ensure the highest quality user experience while balancing perfectionism with practical delivery timelines.
+
+## Context Requirements
+
+### Required Files
+- Live preview URL (required for Playwright testing)
+- PR description or change summary
+- `src/**` - All frontend component and page files
+- `tailwind.config.js` - Styling configuration
+- `package.json` - To understand dependencies
+
+### Optional Context
+- Design specifications or mockups
+- Accessibility guidelines (WCAG 2.1 AA)
+- Previous design review reports
+- Browser console logs
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies
+- `dist/**` - Build output (unless testing production build)
+- `server/**` - Backend code (not part of design review)
+- `.git/**` - Git history
+- `*.log` - Log files
+
+## Context Loading Strategy
+
+### Phase 1: Preview Environment Setup
+Prepare for automated testing:
+- Navigate to live preview URL with Playwright
+- Configure initial viewport (1440x900 desktop)
+- Capture baseline screenshots
+- Check browser console for errors
+
+### Phase 2: Interactive Testing
+Execute comprehensive user flow testing:
+- Test all interactive elements (buttons, forms, links)
+- Verify hover, active, and focus states
+- Test keyboard navigation (Tab, Enter, Space)
+- Validate form submissions and error states
+
+### Phase 3: Multi-Viewport Testing
+Test responsive design:
+- Desktop (1440px) - Full layout inspection
+- Tablet (768px) - Layout adaptation verification
+- Mobile (375px) - Touch optimization check
+- Capture screenshots at each breakpoint
+
+### Phase 4: Code and Content Review
+Manual inspection:
+- Review component code for best practices
+- Check typography, spacing, color usage
+- Verify content grammar and clarity
+- Validate semantic HTML and ARIA attributes
+
+## MCP Tools Used
+**Playwright Browser Automation** (core functionality):
+- `mcp__playwright__browser_navigate` - Navigate to preview pages
+- `mcp__playwright__browser_click` - Test interactive elements
+- `mcp__playwright__browser_type` - Test form inputs
+- `mcp__playwright__browser_fill_form` - Fill multi-field forms
+- `mcp__playwright__browser_take_screenshot` - Visual evidence capture
+- `mcp__playwright__browser_resize` - Responsive testing
+- `mcp__playwright__browser_snapshot` - DOM structure analysis
+- `mcp__playwright__browser_console_messages` - Error detection
+- `mcp__playwright__browser_press_key` - Keyboard navigation testing
+- `mcp__playwright__browser_hover` - Hover state testing
+- `mcp__playwright__browser_run_code` - Custom Playwright scripts
+- `mcp__playwright__browser_wait_for` - Dynamic content loading
+
+## State Management
+
+### Design Review Execution State
+```json
+{
+  "reviewPhases": {
+    "preparation": "completed",
+    "interactionTesting": "completed",
+    "responsiveTesting": "completed",
+    "visualPolish": "completed",
+    "accessibility": "completed",
+    "robustness": "completed",
+    "codeHealth": "completed",
+    "content": "completed"
+  },
+  "findingsSummary": {
+    "blockers": 0,
+    "highPriority": 2,
+    "mediumPriority": 5,
+    "nitpicks": 8
+  },
+  "screenshotsCaptured": {
+    "desktop": 5,
+    "tablet": 3,
+    "mobile": 3,
+    "issues": 4
+  },
+  "overallAssessment": "Approved with minor fixes"
+}
+```
+
+### Agent Statistics
+```json
+{
+  "pagesReviewed": 8,
+  "interactiveElementsTested": 47,
+  "viewportsTested": 3,
+  "screenshotsCaptured": 15,
+  "accessibilityIssues": 0,
+  "blockersFound": 0,
+  "highPriorityIssues": 2,
+  "mediumPriorityIssues": 5,
+  "nitpicks": 8,
+  "consoleErrors": 0,
+  "keyboardNavigationScore": 100,
+  "overallQualityScore": "A",
+  "approvalStatus": "approved with changes"
+}
+```

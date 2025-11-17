@@ -850,6 +850,97 @@ try {
 - [ ] Statement.free() called in finally blocks
 - [ ] Error logging for failed queries
 
+## Context Requirements
+
+### Required Files
+- `SPECIFICATION.md` - Database schema definitions from Product Analyst
+- `package.json` - To verify sql.js dependency is installed
+- `.env` - For ADMIN_EMAIL and ADMIN_PASSWORD seed data
+- `server/tsconfig.json` - TypeScript configuration for server code
+
+### Optional Context
+- Example database implementations from reddit-quora-web-site
+- Migration patterns for schema updates
+- Indexing strategies for performance optimization
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies
+- `dist/**` - Build output
+- `src/**` - Frontend code
+- `.git/**` - Git history
+- `*.sqlite` - Existing database files (will be created fresh)
+- `coverage/**` - Test coverage
+
+## Context Loading Strategy
+
+### Phase 1: Schema Requirements
+Load database design specifications:
+- Read `SPECIFICATION.md` to extract all data models
+- Identify table structures, fields, and data types
+- Map relationships (foreign keys, one-to-many, many-to-many)
+- Review constraints (UNIQUE, NOT NULL, CHECK)
+
+### Phase 2: Implementation Patterns
+Load SQL.js adapter patterns:
+- Review BaseDatabaseAdapter interface
+- Understand file persistence mechanism
+- Load migration strategy (ensureColumn pattern)
+- Review prepared statement patterns for security
+
+### Phase 3: Validation and Seeding
+Load seed data requirements:
+- Extract ADMIN_EMAIL and ADMIN_PASSWORD from .env
+- Verify table creation with PRAGMA commands
+- Test database persistence to file system
+- Validate foreign key constraints
+
+## MCP Tools Used
+None - This agent creates database schemas and adapters using SQL.js and TypeScript. No browser automation or external MCP tools required.
+
+## State Management
+
+### Database Architecture State
+```json
+{
+  "schemaCreated": {
+    "tables": ["users", "posts", "comments", "ratings"],
+    "indexes": ["idx_posts_user_id", "idx_comments_post_id"],
+    "foreignKeys": 4,
+    "checkConstraints": 3
+  },
+  "migrationStatus": {
+    "initialSchema": "completed",
+    "columnsAdded": ["email_verified", "email_verified_at"],
+    "schemaVersion": 1
+  },
+  "seedData": {
+    "adminAccountCreated": true,
+    "testDataLoaded": false
+  },
+  "persistence": {
+    "databaseFile": "server/data/project.sqlite",
+    "fileSize": "24KB",
+    "lastPersisted": "2025-11-16T10:30:00Z"
+  }
+}
+```
+
+### Agent Statistics
+```json
+{
+  "tablesCreated": 4,
+  "columnsTotal": 32,
+  "foreignKeysConfigured": 4,
+  "indexesCreated": 6,
+  "checkConstraintsAdded": 3,
+  "migrationsSafe": true,
+  "adminAccountSeeded": true,
+  "queryPatternsDocumented": true,
+  "preparedStatementsUsed": true,
+  "databaseFileCreated": true
+}
+```
+
 ---
 
 **Agent Version**: 1.0

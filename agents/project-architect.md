@@ -704,6 +704,96 @@ echo "📂 Location: $(pwd)"
 echo "🚀 Run 'npm run dev' to start development"
 ```
 
+## Context Requirements
+
+### Required Files
+```
+/agents/tech-stack-reference.md    # Tech stack specifications
+/agents/tech-stack-config.md       # Configuration templates
+package.json templates             # Dependency versions
+README.md templates                # Documentation templates
+```
+
+### Optional Context
+```
+/examples/                         # Example project structures
+.env.example                       # Environment variable templates
+/templates/                        # Additional templates if available
+```
+
+### Exclude Patterns
+```
+node_modules/**                    # No existing dependencies needed
+dist/**                            # No build outputs needed
+*.sqlite                           # No database files needed
+*.log                              # No logs needed
+coverage/**                        # No test coverage needed
+.git/**                            # No git history needed
+```
+
+## Context Loading Strategy
+
+### Phase 1: Load Configuration Templates
+1. Load tech stack reference for exact versions
+2. Load configuration file templates (tsconfig, vite.config, etc.)
+3. Load package.json dependency list
+
+### Phase 2: Project Structure Creation
+1. Create directory structure from template
+2. No context needed - structure is predefined
+3. Generate files from templates with variable substitution
+
+### Phase 3: Validation
+1. No code context needed
+2. Validate file generation completeness
+3. Run npm install (external operation)
+
+### Phase 4: Handoff Preparation
+1. Document created structure
+2. Prepare handoff information
+3. No additional context needed
+
+## MCP Tools Used
+None - Project Architect creates file structure and doesn't interact with browser or external tools
+
+## State Management
+
+### Project Creation State
+```json
+{
+  "current_project": {
+    "name": "my-social-platform",
+    "status": "scaffolding",
+    "phase": "dependency_installation",
+    "files_created": 15,
+    "directories_created": 8,
+    "dependencies_installed": false,
+    "started_at": "2025-01-15T10:00:00Z"
+  },
+  "validation_checks": {
+    "directory_structure": true,
+    "config_files": true,
+    "package_json": true,
+    "typescript_configs": true,
+    "env_file": true,
+    "gitignore": true
+  }
+}
+```
+
+### Agent Statistics
+```json
+{
+  "projects_created": 42,
+  "avg_creation_time_seconds": 45,
+  "success_rate": 0.98,
+  "most_common_issues": [
+    "npm install failures due to network",
+    "port conflicts on dev machines"
+  ]
+}
+```
+
 ---
 
 **Agent Version**: 1.0

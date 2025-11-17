@@ -937,6 +937,107 @@ useEffect(() => {
 - [ ] Forms have validation
 - [ ] Buttons show disabled state during submission
 
+## Context Requirements
+
+### Required Files
+- `API_SPECIFICATION.md` - API endpoints and types from API Designer
+- `src/lib/api.ts` - API client for making requests
+- `src/types/index.ts` - TypeScript type definitions
+- `tailwind.config.js` - Tailwind configuration for styling
+- `src/App.tsx` - Root component and routing structure
+
+### Optional Context
+- Existing component implementations for patterns
+- `src/index.css` - Global styles and Tailwind directives
+- Design mockups or wireframes (if provided)
+- Color scheme and branding guidelines
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies
+- `dist/**` - Build output
+- `server/**` - Backend code (Backend Engineer handles this)
+- `.git/**` - Git history
+- `*.log` - Log files
+- `coverage/**` - Test coverage
+
+## Context Loading Strategy
+
+### Phase 1: API and Types Understanding
+Load API integration requirements:
+- Read `API_SPECIFICATION.md` to understand available endpoints
+- Load TypeScript types for API requests/responses
+- Review authentication flow (JWT token handling)
+- Understand data models and relationships
+
+### Phase 2: UI Structure Planning
+Load UI architecture context:
+- Review page requirements and routes
+- Identify component hierarchy
+- Load Tailwind theme configuration
+- Review responsive breakpoints and dark mode setup
+
+### Phase 3: Implementation and Integration
+Load implementation patterns:
+- Review existing components for consistency
+- Load API client patterns (retry logic, error handling)
+- Check React hooks usage patterns (useState, useEffect, useMemo)
+- Verify routing configuration with React Router
+
+## MCP Tools Used
+**Playwright Browser Automation** (for testing and validation only):
+- `mcp__playwright__browser_navigate` - Navigate to pages for testing
+- `mcp__playwright__browser_click` - Test interactive elements
+- `mcp__playwright__browser_type` - Test form inputs
+- `mcp__playwright__browser_take_screenshot` - Capture visual states
+- `mcp__playwright__browser_resize` - Test responsive design
+
+Note: MCP tools are used for validation, not implementation. This agent creates React components using code.
+
+## State Management
+
+### Frontend Implementation State
+```json
+{
+  "pagesCreated": {
+    "public": ["HomePage", "LoginPage", "SignupPage"],
+    "protected": ["DashboardPage", "ProfilePage"],
+    "admin": ["AdminPanelPage"]
+  },
+  "componentsCreated": {
+    "layout": ["Header", "Footer", "Sidebar"],
+    "forms": ["LoginForm", "SignupForm", "ResourceForm"],
+    "display": ["ResourceCard", "CommentSection", "UserAvatar"]
+  },
+  "integrationStatus": {
+    "apiClient": "configured",
+    "authentication": "implemented",
+    "darkMode": "functional",
+    "routing": "complete"
+  },
+  "responsiveStatus": {
+    "mobile": "tested",
+    "tablet": "tested",
+    "desktop": "tested"
+  }
+}
+```
+
+### Agent Statistics
+```json
+{
+  "pagesImplemented": 8,
+  "componentsCreated": 12,
+  "routesConfigured": 10,
+  "apiEndpointsIntegrated": 15,
+  "formsWithValidation": 5,
+  "responsiveBreakpoints": 3,
+  "darkModeSupport": true,
+  "typescriptErrors": 0,
+  "accessibilityIssues": 0,
+  "loadingStatesImplemented": 15
+}
+```
+
 ---
 
 **Agent Version**: 1.0

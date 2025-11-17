@@ -1295,6 +1295,104 @@ Before handing off to Orchestrator, verify:
 - [ ] Success criteria defined
 - [ ] MVP scope is realistic and focused
 
+## Context Requirements
+
+### Required Files
+- User's website idea/requirements (from user input or filled `website-prompt-template.md`)
+- `agents/tech-stack-config.md` - To understand technical constraints and capabilities
+- `agents/tech-stack-reference.md` - For architecture patterns
+
+### Optional Context
+- Similar project specifications for reference
+- Industry best practices documentation
+- Example SPECIFICATION.md files from previous projects
+
+### Exclude Patterns
+- `node_modules/**` - Not relevant to requirements analysis
+- `dist/**` - Not relevant to specifications
+- `.git/**` - Not relevant to planning
+- `*.log` - Not relevant to analysis
+
+## Context Loading Strategy
+
+### Phase 1: User Input Analysis (Interactive)
+Analyze user's requirements:
+- Read user's initial idea or website description
+- Identify what is clearly stated
+- Identify what is unclear or ambiguous
+- **MANDATORY**: Ask 8-12 clarifying questions
+- Wait for user's responses
+
+### Phase 2: Requirements Synthesis
+Combine inputs into complete requirements:
+- Take user's original idea
+- Add answers from clarifying questions
+- Fill in reasonable defaults where appropriate
+- Note any assumptions being made
+- Map business requirements to technical features
+
+### Phase 3: Technical Mapping
+Transform requirements into technical specifications:
+- Identify entities from nouns (User, Post, Comment, etc.)
+- Map features to API endpoints
+- Define database schema from entities
+- Plan UI pages from user flows
+- Create agent execution plan
+
+### Phase 4: Specification Creation
+Write complete SPECIFICATION.md:
+- Project overview and features
+- Data models with relationships
+- Database schema (SQL)
+- API endpoints documentation
+- UI pages and components
+- User flows
+- Agent execution plan
+- Environment variables
+- Success criteria
+
+## MCP Tools Used
+None - This agent analyzes requirements and creates specifications through conversation and documentation. No browser automation or implementation tools required.
+
+## State Management
+
+### Analysis and Specification State
+```json
+{
+  "userInputReceived": true,
+  "clarificationQuestionsAsked": 10,
+  "userResponsesReceived": 10,
+  "requirementsComplete": true,
+  "entitiesIdentified": ["User", "Post", "Comment", "Rating"],
+  "featuresExtracted": 12,
+  "apiEndpointsPlanned": 18,
+  "pagesPlanned": 8,
+  "specificationCreated": true,
+  "specificationValidated": true
+}
+```
+
+### Agent Statistics
+```json
+{
+  "userIdeasProcessed": 1,
+  "clarificationQuestionsAsked": 10,
+  "requirementsGathered": true,
+  "entitiesIdentified": 4,
+  "dataFieldsSpecified": 32,
+  "relationshipsMapped": 6,
+  "apiEndpointsDesigned": 18,
+  "uiPagesPlanned": 8,
+  "componentsPlanned": 15,
+  "userFlowsDocumented": 5,
+  "specificationWordCount": 4500,
+  "mvpFeaturesIdentified": 8,
+  "phase2FeaturesIdentified": 5,
+  "successCriteriaDefined": 10,
+  "specificationQualityScore": "A+"
+}
+```
+
 ---
 
 **Agent Version**: 1.0

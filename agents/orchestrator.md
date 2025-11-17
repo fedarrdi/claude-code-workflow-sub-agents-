@@ -1031,6 +1031,113 @@ Recovery options:
 What would you like to do? [fix/update/skip]
 ```
 
+## Context Requirements
+
+### Required Files
+- `SPECIFICATION.md` - Complete technical specification from Product Analyst (CRITICAL)
+- `agents/tech-stack-config.md` - Tech stack reference for all agents
+- All agent documentation files in `/agents` directory
+- `.env.example` or environment variable requirements
+
+### Optional Context
+- Previous successful project builds for reference
+- Agent execution logs from similar projects
+- Validation checklists
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies (loaded by agents, not orchestrator)
+- `dist/**` - Build output
+- `.git/**` - Git history
+- `*.sqlite` - Database files (created by agents)
+- `*.log` - Log files
+
+## Context Loading Strategy
+
+### Phase 1: Specification Analysis (CRITICAL)
+Read and validate the technical specification:
+- Load `SPECIFICATION.md` completely
+- Extract project overview, features, data models
+- Parse database schema requirements
+- Extract API endpoints list
+- Identify UI pages and components needed
+- Load **Agent Execution Plan** section (most important)
+- Extract environment variables needed
+- Review success criteria
+
+### Phase 2: Agent Coordination Planning
+Plan agent execution sequence:
+- Review agent dependencies from execution plan
+- Identify which agents can run in parallel
+- Prepare agent-specific instructions from spec sections
+- Set up validation checkpoints
+- Plan error recovery strategies
+
+### Phase 3: Sequential Execution and Monitoring
+Execute agents with monitoring:
+- Activate agents in planned sequence
+- Pass relevant specification sections to each agent
+- Monitor agent output for errors
+- Validate each agent's completion before proceeding
+- Track overall progress and maintain status
+
+## MCP Tools Used
+None directly - The Orchestrator coordinates other agents but doesn't use browser automation itself. Individual agents (Frontend, QA, Design Review) may use Playwright MCP tools.
+
+## State Management
+
+### Orchestration Execution State
+```json
+{
+  "specificationLoaded": true,
+  "projectName": "RecipeHub",
+  "agentSequence": [
+    "Project Architect",
+    "DevOps Engineer",
+    "Database Architect",
+    "API Designer",
+    "Backend Engineer",
+    "Frontend Engineer",
+    "Quality Assurance"
+  ],
+  "agentStatus": {
+    "ProjectArchitect": "completed",
+    "DevOpsEngineer": "completed",
+    "DatabaseArchitect": "completed",
+    "APIDesigner": "completed",
+    "BackendEngineer": "in_progress",
+    "FrontendEngineer": "waiting",
+    "QualityAssurance": "waiting"
+  },
+  "validationCheckpoints": {
+    "projectStructure": "passed",
+    "environmentSetup": "passed",
+    "databaseCreated": "passed",
+    "apiSpecified": "passed"
+  },
+  "errorsEncountered": 0,
+  "overallProgress": "60%"
+}
+```
+
+### Agent Statistics
+```json
+{
+  "totalAgentsManaged": 7,
+  "agentsCompleted": 4,
+  "agentsInProgress": 1,
+  "agentsPending": 2,
+  "validationCheckpointsPassed": 4,
+  "validationCheckpointsFailed": 0,
+  "specificationSectionsProcessed": 8,
+  "endpointsToImplement": 15,
+  "tablesCreated": 4,
+  "pagesCreated": 0,
+  "estimatedCompletion": "75%",
+  "errorsEncountered": 0,
+  "recoveryActionsExecuted": 0
+}
+```
+
 ---
 
 **Agent Version**: 2.0

@@ -855,6 +855,68 @@ This tech stack is optimized for:
 
 **All agents MUST follow this configuration to ensure consistency.**
 
+## Context Requirements
+
+### Required Files
+None - This is a configuration reference document. All agents reference this file to understand tech stack standards.
+
+### Optional Context
+- `package.json` examples from reddit-quora-web-site
+- Configuration files (vite.config.ts, tailwind.config.js, tsconfig.json) for validation
+
+### Exclude Patterns
+- `node_modules/**`
+- `dist/**`
+- `.git/**`
+
+## Context Loading Strategy
+
+### Phase 1: Reference Lookup
+This is a comprehensive tech stack reference:
+- Agents read specific sections as needed (Frontend Stack, Backend Stack, etc.)
+- Used as source of truth for all technology versions
+- Consulted during project setup and implementation
+
+### Phase 2: Version Verification
+Validate consistency:
+- Cross-reference with package.json files
+- Ensure all version numbers are current
+- Validate configuration patterns match reference project
+
+### Phase 3: Pattern Application
+Apply standardized patterns:
+- Use architectural patterns defined here
+- Follow security best practices outlined
+- Implement API conventions as specified
+
+## MCP Tools Used
+None - This is a configuration reference document, not an executable agent.
+
+## State Management
+
+### Configuration Document State
+```json
+{
+  "documentType": "tech stack configuration",
+  "purpose": "centralized technology standards",
+  "targetAudience": ["all agents", "developers"],
+  "maintained": true,
+  "versioned": true,
+  "lastUpdated": "2025-11-16"
+}
+```
+
+### Agent Statistics
+```json
+{
+  "notApplicable": "This is a configuration reference document, not an executable agent",
+  "referencedByAgents": 10,
+  "technologiesDocumented": 30,
+  "patternsProvided": 15,
+  "securityGuidelines": 8
+}
+```
+
 ---
 
 **Configuration Version**: 1.0

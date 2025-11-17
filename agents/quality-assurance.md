@@ -183,6 +183,103 @@ describe('API Client', () => {
 - [ ] No secrets in code
 - [ ] Error handling implemented
 
+## Context Requirements
+
+### Required Files
+- Entire codebase (both `src/` and `server/` directories)
+- `.eslintrc.cjs` - ESLint configuration
+- `tsconfig.json` - TypeScript configuration (frontend and backend)
+- `.env` - To verify no secrets are hardcoded
+- `SPECIFICATION.md` - To validate success criteria
+
+### Optional Context
+- Test files (if any exist)
+- Security checklist documentation
+- Code review guidelines
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies (not part of code review)
+- `dist/**` - Build output (not source code)
+- `.git/**` - Git history
+- `*.log` - Log files
+- `coverage/**` - Test coverage reports
+
+## Context Loading Strategy
+
+### Phase 1: Static Analysis
+Run automated quality checks:
+- Execute `npm run lint` to check ESLint rules
+- Run `tsc --noEmit` to verify TypeScript compilation
+- Check for console.log statements in production code
+- Scan for hardcoded secrets or API keys
+
+### Phase 2: Code Review
+Manual code inspection:
+- Review authentication implementation (JWT, bcrypt)
+- Check SQL queries for prepared statements (no SQL injection)
+- Verify input validation on all API endpoints
+- Check CORS configuration
+- Review error handling patterns
+
+### Phase 3: Security Audit
+Security-focused validation:
+- Verify passwords are hashed (bcrypt with 12 rounds)
+- Check JWT tokens have expiration
+- Ensure environment variables used (not hardcoded)
+- Validate no sensitive data in error messages
+- Check .gitignore includes .env and *.sqlite files
+
+## MCP Tools Used
+None - This agent performs code quality checks using standard tools (ESLint, TypeScript compiler). No browser automation required for static analysis.
+
+## State Management
+
+### Quality Assurance State
+```json
+{
+  "staticAnalysis": {
+    "eslintErrors": 0,
+    "eslintWarnings": 2,
+    "typescriptErrors": 0,
+    "codeStyleIssues": 0
+  },
+  "securityAudit": {
+    "passwordsHashed": true,
+    "jwtExpiration": true,
+    "sqlInjectionPrevention": true,
+    "corsConfigured": true,
+    "secretsHardcoded": false
+  },
+  "codeQuality": {
+    "unusedVariables": 0,
+    "missingTypes": 0,
+    "errorHandling": "complete",
+    "validationCoverage": "100%"
+  },
+  "successCriteria": {
+    "totalCriteria": 10,
+    "criteriaPass ed": 10,
+    "criteriaPending": 0
+  }
+}
+```
+
+### Agent Statistics
+```json
+{
+  "filesReviewed": 45,
+  "eslintRulesChecked": 82,
+  "typescriptFilesCompiled": 38,
+  "securityIssuesFound": 0,
+  "codeSmellsDetected": 0,
+  "bestPracticesViolations": 0,
+  "accessibilityIssues": 0,
+  "performanceWarnings": 0,
+  "overallQualityScore": "A+",
+  "readyForProduction": true
+}
+```
+
 ---
 
 **Agent Version**: 1.0

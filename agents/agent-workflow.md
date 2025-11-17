@@ -367,6 +367,64 @@ After your website is built:
 5. Deploy to hosting platform
 6. Set up monitoring
 
+## Context Requirements
+
+### Required Files
+- All agent documentation files in `/agents` directory
+- `website-prompt-template.md` - For understanding user input format
+- `SPECIFICATION.md` (when created) - For understanding project requirements
+
+### Optional Context
+- Example project specifications
+- Previous successful agent executions
+
+### Exclude Patterns
+- `node_modules/**`
+- `dist/**`
+- `.git/**`
+
+## Context Loading Strategy
+
+### Phase 1: Workflow Understanding
+Read workflow documentation:
+- Understand agent activation sequence
+- Review dependencies between agents
+- Learn validation checkpoints
+
+### Phase 2: Agent Coordination
+Reference agent-specific documentation:
+- Load individual agent capabilities
+- Understand input/output formats
+- Review handoff points between agents
+
+### Phase 3: Execution Planning
+Plan project execution:
+- Map user requirements to agent sequence
+- Identify parallel vs sequential execution
+- Plan validation at each step
+
+## MCP Tools Used
+None - This is a workflow guide document, not an executable agent. The Orchestrator agent uses this as reference material.
+
+## State Management
+
+### Workflow Guide State
+```json
+{
+  "documentType": "workflow guide",
+  "purpose": "explain agent coordination process",
+  "targetAudience": ["developers", "orchestrator agent"],
+  "maintained": true
+}
+```
+
+### Agent Statistics
+```json
+{
+  "notApplicable": "This is a workflow guide document, not an executable agent"
+}
+```
+
 ---
 
 **Version**: 1.0

@@ -262,6 +262,96 @@ CORS_ORIGIN=http://localhost:5173,http://localhost:4000
 - [ ] Environment variables loaded via dotenv
 - [ ] Production build optimized
 
+## Context Requirements
+
+### Required Files
+- `SPECIFICATION.md` - Environment variable requirements from Product Analyst
+- `package.json` - To understand build scripts and dependencies
+- `agents/tech-stack-config.md` - For standard environment setup patterns
+
+### Optional Context
+- Example `.env` files from reddit-quora-web-site project
+- Deployment platform documentation (if targeting specific host)
+- Security best practices for secret generation
+
+### Exclude Patterns
+- `node_modules/**` - Dependencies
+- `dist/**` - Build output
+- `src/**` - Source code (not relevant to env config)
+- `server/**` - Server code (not relevant to env config)
+- `.git/**` - Git history
+- `*.sqlite` - Database files
+
+## Context Loading Strategy
+
+### Phase 1: Requirements Gathering
+Load environment configuration needs:
+- Read `SPECIFICATION.md` for required environment variables
+- Identify secrets needed (JWT_SECRET, API keys, passwords)
+- Determine application-specific variables (PRODUCT_NAME, URLs)
+- List optional variables (email service, payment integration)
+
+### Phase 2: Security Configuration
+Generate secure values:
+- Generate random JWT_SECRET (32+ characters)
+- Generate random SESSION_SECRET (32+ characters)
+- Set secure default ADMIN_PASSWORD
+- Configure CORS_ORIGIN for appropriate domains
+
+### Phase 3: Build and Deployment Setup
+Configure build environment:
+- Review package.json scripts (dev, build, preview)
+- Verify concurrently setup for multi-process dev
+- Check TypeScript build configuration
+- Ensure .gitignore excludes .env files
+
+## MCP Tools Used
+None - This agent configures environment variables and build scripts. No browser automation or external MCP tools required.
+
+## State Management
+
+### DevOps Configuration State
+```json
+{
+  "environmentFiles": {
+    ".env": "created",
+    ".env.example": "created",
+    ".gitignore": "updated"
+  },
+  "secretsGenerated": {
+    "JWT_SECRET": "generated (32 chars)",
+    "SESSION_SECRET": "generated (32 chars)",
+    "ADMIN_PASSWORD": "set"
+  },
+  "applicationConfig": {
+    "PORT": 4000,
+    "API_PREFIX": "/api",
+    "CORS_ORIGIN": "http://localhost:5173",
+    "PRODUCT_NAME": "set"
+  },
+  "buildScripts": {
+    "dev": "configured",
+    "build": "configured",
+    "preview": "configured"
+  }
+}
+```
+
+### Agent Statistics
+```json
+{
+  "environmentVariablesSet": 18,
+  "secretsGenerated": 3,
+  "configFilesCreated": 2,
+  "gitignoreUpdated": true,
+  "buildScriptsVerified": 4,
+  "corsConfigured": true,
+  "portConfigured": true,
+  "securityScore": "high",
+  "productionReady": false
+}
+```
+
 ---
 
 **Agent Version**: 1.0
